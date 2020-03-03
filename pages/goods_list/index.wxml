@@ -1,0 +1,28 @@
+<view class="setcomp">
+  <view class="set-input">
+    <icon type="search"></icon>
+    搜索
+  </view>
+</view>
+
+<view class="hander-top">
+  <view bindtap="handclick" wx:for="{{['综合','销量','价格']}}" wx:key="index" data-index="{{index}}"
+  class="{{getIndex === index ? 'active' : ''}}"
+  >{{item}}</view>
+</view>
+<navigator url="#">
+  <view class="content-list">
+    <block wx:for="{{list.goods}}" wx:key="index">
+      <view class="content-son">
+        <view class="left">
+          <image src="https://img20.360buyimg.com/mobilecms/s144x144_jfs/t1/91697/2/13252/75833/5e55cc46Edc2a55d4/059de7c5ae7fcd8a.jpg!q70.jpg.webp"></image>
+        </view>
+
+        <view class="right">
+          <text>{{item.goods_name}}</text>
+          <text>￥{{item.goods_price}}.00</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</navigator>

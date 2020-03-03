@@ -1,0 +1,101 @@
+.content {
+  position: fixed;
+  top: 100rpx;
+  bottom: 0;
+  width: 750rpx;
+  display: flex;
+}
+.setcomp {
+  background-color: #eb4450;
+  padding: 20rpx;
+}
+.set-input {
+  height: 60rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.srcimages {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx 0;
+}
+.set-input icon {
+  margin-left: 5px;
+}
+.common-font-left {
+  width: 198rpx;
+  height: 100%;
+  overflow: auto;
+  flex-shrink: 0;
+}
+
+.font-left {
+  width: 198rpx;
+  height: 100rpx;
+  background-color: rgba(168, 160, 161, 0.11);
+  border: 1px solid rgba(168, 160, 161, 0.02);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.active {
+  color: red;
+  border: none;
+  background-color: #fff;
+}
+
+.active::before {
+  display: block;
+  content: "";
+  width: 5px;
+  height: 30px;
+  background: red;
+  position: absolute;
+  left: 0;
+}
+
+.rigth {
+  flex: 1;
+  flex-shrink: 0;
+  overflow: auto;
+}
+
+.rigth .font-sizes {
+  text-align: center;
+  color: #ccc;
+}
+
+.rigth .font-sizes text {
+  color: black;
+}
+
+.rigth .propet-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  justify-content: center;
+  width: 100%;
+}
+
+.propet-list navigator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20rpx;
+  width: 33%;
+  overflow: hidden;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.rigth .propet-list navigator image {
+  width: 100%;
+}

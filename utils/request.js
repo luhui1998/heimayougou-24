@@ -1,70 +1,92 @@
 /**
- * 异步请求函数
- * @参数：config | 传入的配置
- * @例子：{
- *  url: ""
- *  method: "get" | "post",
- *  ...
- * }
+ * 封装一个异步的请求工具库
+ * 基于 wx.request (ajax) 来实现axios的部分功能
+ * 
+ * 1.调用返回一个promise （以axios举例）
+ * 
+ * request({
+ *  ...配置
+ * }).then(res => {}).catch(err => {})
+ * 
+ * 
+ * 2.配置基准路径
+ * 
+ * request.defaults.baseURL = "路径"
+ * 
+ * 
+ * 3.错误拦截
+ * 
+ * request.onError(res => {
+ *  // 处理错误
+ * })
+ *
  */
-let request = null;
 
-request = (config) => {
+/**
+ * 主函数
+ * 
+ * @params
+ * 参数 | 类型 | 默认值
+ * config | Oject | {}
+ */
+const request = (config = {}) => {
 
-  if (!config.url) {
-    throw new Error("url不能为空!");
-    return;
-  }
+    // 如果url开头没有http，加上基准路径
+    // 字符串正则方法search https://www.runoob.com/jsref/jsref-search.html
+    if(config.url.search(/^http/) === -1){
+        // 给链接添加url，加上基准路径
+        config.url = request.defaults.baseURL + config.url;
+    }
 
-  let { url, ...props } = config;
-
-  url = url.search(/^http+?/) > -1 ? url : request.defaults.baseURL + url;
-
-  config = {
-    url,
-    method: "GET",
-    ...props
-  }
-
-  return new Promise((resolve, reject) => {
-    wx.request({
-      ...config,
-      success(res) {
-        resolve(res);
-      },
-      fail(err) {
-        reject(err);
-      },
-      complete(res) {
-
-        resolve(res);
-
-        request.errors.forEach(cb => {
-          cb(res);
+    // 返回一个promise
+    // resolve是 .then 里面的函数，一般请求成功时候执行
+    // reject 是 .catch 里面的函数，一般用于请求失败时候执行
+    return new Promise((resolve, reject) => {
+        // 发起请求
+        wx.request({
+            ...config,
+            success(res){
+                resolve(res);
+            },
+            fail(res){
+                reject(res);
+            },
+            // 不管成功失败都会执行
+            complete(res){
+                // 执行错误的兰截器
+                request.errors(res);
+            }
         })
-      }
     })
-  })
 }
 
 /**
- * 默认配置
+ * request的默认属性
  */
 request.defaults = {
-  baseURL: "",
+    // 基准路径
+    baseURL: ""
 }
 
 /**
- * 错误监听函数集合
+ * 存储错误的回调函数.默认是一个空的函数
  */
-request.errors = [];
+request.errors = () => {}
 
 /**
- * 错误拦截
- * @参数: 回调函数
+ * request的错误拦截
+ * 
+ * @params
+ * callback | 函数 
  */
 request.onError = (callback) => {
-  request.errors.push(callback);
+    // 判断callback必须是一个函数
+    if(typeof callback === "function"){
+        // 如果是函数，保存到errors
+        request.errors = callback
+    }
 }
 
+
+// 对外暴露
 export default request;

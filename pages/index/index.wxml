@@ -1,4 +1,51 @@
 <!--index.wxml-->
 <view class="container">
-首页
+  <view class="setcomp">
+    <view class="set-input">
+      <icon type="search"></icon>
+      搜索
+    </view>
+  </view>
+
+  <swiper indicator-dots class="swiperimage" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="rgba(255, 255, 255, 1)" circular>
+    <block wx:for="{{ banners }}" wx:key="index">
+      <swiper-item>
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="srcimages">
+    <block wx:for="{{navigation}}" wx:key="index">
+      <navigator url="{{item.url}}">
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </navigator>
+    </block>
+  </view>
+
+
+  <view wx:for="{{cart}}" wx:key="index" class="selected-child">
+    <view class="selected-child-image">
+      <view class="image-a-src">
+        <navigator>
+          <image src="{{item.floor_title.image_src}}"></image>
+        </navigator>
+      </view>
+
+      <view class="flood-conment">
+        <view class="floot-left">
+          <image src="{{item.product_list[0].image_src}}"></image>
+        </view>
+        <view class="floot-right">
+          <block wx:for="{{item.product_list}}" wx:key="index">
+            <image src="{{item.image_src}}" wx:if="{{index > 0}}"></image>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="arrow" bindtap="handclick" hidden="{{showTop}}">
+    <view class="toTop"></view>
+    <text >顶部</text>
+  </view>
 </view>

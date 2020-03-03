@@ -1,0 +1,24 @@
+.setcomp {
+  background-color: #eee;
+  padding: 20rpx;
+}
+
+.set-input {
+  height: 60rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.srcimages {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.set-input icon {
+  margin-left: 5px;
+}

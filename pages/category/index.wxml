@@ -1,0 +1,40 @@
+<view class="setcomp">
+  <view class="set-input">
+    <icon type="search"></icon>
+    搜索
+  </view>
+</view>
+
+<view class="content">
+  <view class="common-font-left">
+    <view wx:for="{{navigation}}" wx:key="index" bindtap="handclick" data-index="{{index}}">
+      <view class="font-left-hover">
+        <view class="font-left {{current === index ? 'active' : ''}}">
+          {{item.cat_name}}
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+
+  <view class="rigth">
+    <block wx:for="{{navigation[current].children}}" wx:key="index">
+
+      <view class="font-sizes">/
+        <text>{{item.cat_name}}</text> /</view>
+      <view class="propet-list">
+        <block wx:for="{{item.children}}" wx:key="index" wx:for-item="subIndex">
+          <navigator>
+            <image src="{{subIndex.cat_icon}}" mode="widthFix"></image>
+            <view>
+            </view>
+          </navigator>
+
+        </block>
+      </view>
+
+    </block>
+  </view>
+
+</view>

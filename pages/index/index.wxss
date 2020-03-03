@@ -1,0 +1,102 @@
+.setcomp {
+  background-color: #eb4450;
+  padding: 20rpx;
+}
+
+.set-input {
+  height: 60rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.set-input icon {
+  margin-left: 5px;
+}
+
+.swiperimage {
+  height: 340rpx;
+}
+
+.swiperimage image {
+  height: 340rpx;
+  width: 750rpx;
+}
+
+.srcimages {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.srcimages image {
+  width: 128rpx;
+  height: 140rpx;
+}
+
+.image-a-src {
+  width: 750rpx;
+  display: flex;
+}
+
+.image-a-src image {
+  justify-content: center;
+  height: 88rpx;
+}
+
+.floot-right image {
+  width: 234rpx;
+  height: 190rpx;
+  padding-bottom: 5px;
+}
+
+.flood-conment {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.flood-conment image {
+  padding-left: 5px;
+}
+
+.floot-left image {
+  width: 234rpx;
+  height: 372rpx;
+}
+
+.selected-child + .selected-child .floot-right image {
+  width: 193rpx;
+}
+
+.selected-child + .selected-child .floot-right image:nth-child(3n+1) {
+  width: 270rpx;
+}
+
+.toTop {
+  width: 20rpx;
+  height: 20rpx;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  transform: rotate(45deg);
+}
+
+.arrow {
+  width: 80rpx;
+  height: 80rpx;
+  color:#ffffff;
+  background-color: #ccc;
+  border-radius: 50%;
+  font-size: 12px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}

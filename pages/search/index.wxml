@@ -1,0 +1,6 @@
+<view class="setcomp">
+  <view class="set-input">
+    <icon type="search"></icon>
+    搜索
+  </view>
+</view>
