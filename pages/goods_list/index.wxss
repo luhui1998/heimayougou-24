@@ -36,9 +36,6 @@
   width: 33.3%;
 }
 
-.hander-top view:nth-child(3) {
-  background-color: red;
-}
 
 .content-list {
   width: 750rpx;
@@ -81,7 +78,6 @@
   overflow: hidden;
 }
 .content-son .right text + text{
-  background-color: red;
   position: absolute;
   bottom: 20px;
   left: 0;
@@ -91,4 +87,10 @@ display: block;
 }
 .active{
   color: red;
+}
+.bottom-list{
+  text-align: center;
+  color: #ccc;
+  font-size: 13px;
+  padding: 20px;
 }

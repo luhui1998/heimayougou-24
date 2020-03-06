@@ -1,24 +1,63 @@
 .setcomp {
-  background-color: #eee;
-  padding: 20rpx;
+  height: 120rpx;
+  width: 750rpx;
+  display: flex;
+  align-items: center;
+  background-color: #eeeeee;
+  position: relative
 }
-
-.set-input {
+.recommend{
+  position: absolute;
+  left: 17rpx;
+  top: 80rpx;
+  background-color: red;
+  right: 17rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  height: 50vh;
+  overflow: auto;
+}
+.recommend navigator{
+  line-height: 1.8;
+  border-bottom: 1px solid #eee;
+}
+.set-input{
   height: 60rpx;
-  background-color: #fff;
+  width: 100%;
+  background-color: white;
+  margin: 0 16rpx;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  
+}
+.set-input input{
+  flex: 1;
+  height: 100%;
+  
+} 
+.click-rigth{
+  width: 158rpx;
+  height: 58rpx;
+  border: 1px solid #bfbfbf;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
 }
-
-.srcimages {
+.history-title{
+  padding: 20rpx;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20rpx 0;
+  justify-content: space-between;
+  align-items: center
 }
-
-.set-input icon {
-  margin-left: 5px;
+.history-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 20px;
+}
+.history-item{
+  padding: 5px 20px;
+  background: #eee;
+  margin: 0 0 20rpx 20rpx
 }

@@ -1,28 +1,35 @@
-<view class="setcomp">
-  <view class="set-input">
-    <icon type="search"></icon>
-    搜索
-  </view>
+<view class="setcomp" bindtap="clickinput">
+  <navigator url="/pages/search/index">
+    <view class="set-input">
+      <icon type="search"></icon>
+      搜索
+    </view>
+  </navigator>
 </view>
 
 <view class="hander-top">
-  <view bindtap="handclick" wx:for="{{['综合','销量','价格']}}" wx:key="index" data-index="{{index}}"
-  class="{{getIndex === index ? 'active' : ''}}"
-  >{{item}}</view>
+  <view bindtap="handclick" wx:for="{{['综合','销量','价格']}}" wx:key="index" data-index="{{index}}" class="{{getIndex === index ? 'active' : ''}}">{{item}}
+    <text wx:if="{{index === 2}}" class="iconfont iconpaixu"></text>
+  </view>
 </view>
 <navigator url="#">
   <view class="content-list">
-    <block wx:for="{{list.goods}}" wx:key="index">
+    <block wx:for="{{goods}}" wx:key="index">
       <view class="content-son">
         <view class="left">
-          <image src="https://img20.360buyimg.com/mobilecms/s144x144_jfs/t1/91697/2/13252/75833/5e55cc46Edc2a55d4/059de7c5ae7fcd8a.jpg!q70.jpg.webp"></image>
+          <image src="{{item.goods_small_logo}}"></image>
         </view>
 
         <view class="right">
           <text>{{item.goods_name}}</text>
-          <text>￥{{item.goods_price}}.00</text>
+          <text>￥{{item.goods_price}}</text>
         </view>
       </view>
     </block>
+
+    <view class="bottom-list">
+      <text wx:if="{{hasMore}}">加载中</text>
+      <text wx:if="{{!hasMore}}">爷也是有底线的</text>
+    </view>
   </view>
 </navigator>

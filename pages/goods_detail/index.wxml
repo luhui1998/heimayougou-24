@@ -1,2 +1,48 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view class="commenter">
+  <view>
+    <view class="page-section  swiper">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="gray" indicator-active-color="white">
+        <block wx:for="{{background}}" wx:key="index">
+          <swiper-item>
+            <image src="https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3435958492,2734674803&fm=26&gp=0.jpg"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+  </view>
+
+  <view class="page-section-spacing">
+    <view class="page-section">
+      <view>
+        <text>123</text>
+      </view>
+      <view>
+        <text>我可以我可以我可以我可以我可以我可以我可以我可以我可以我可以</text>
+      </view>
+      <view>
+        <text>123</text>
+      </view>
+    </view>
+
+    <view class="page-spacing">
+      <view>
+        <text>*</text>
+        <text>收藏</text>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="page-section-bottom">
+    <view>
+      <view class="top"><text>促销</text><text>满300减30元</text></view>
+      <view class="bottom"></view>
+    </view>
+
+    <view>
+        <view class="left">加入购物车</view>
+        <view class="right">立即购买</view>
+    </view>
+  </view>
+</view>
