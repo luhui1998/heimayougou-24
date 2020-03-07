@@ -1,3 +1,6 @@
+.comtainer{
+  min-height: 100vh;
+}
 .setcomp {
   height: 120rpx;
   width: 750rpx;
@@ -7,9 +10,10 @@
   position: relative
 }
 .recommend{
+  border-radius: 5rpx;
   position: absolute;
   left: 17rpx;
-  top: 80rpx;
+  top: 90rpx;
   background-color: red;
   right: 17rpx;
   padding: 20rpx;

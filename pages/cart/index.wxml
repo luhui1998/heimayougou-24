@@ -1,2 +1,72 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="comtainer">
+  <view wx:if="{{address.name}}">
+    <view class="list-top">
+      <view>{{address.name}}</view>
+      <view class="list-one">
+        <view>{{address.tel}}</view>
+        <view class="right-icon"></view>
+      </view>
+    </view>
+
+    <view class="list-info">
+      <view>收货地址：{{address.detail}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{!address.name}}" bindtap="handleGetAdd">
+    <view class="list-top">
+      <view>获取收货地址</view>
+      <view class="list-one">
+        <view class="right-icon"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="list-images">
+    <image src="../../images/cart_border@2x.png" mode="aspectFill"></image>
+  </view>
+  <!-- 生活馆 -->
+  <view class="Life-hall">
+    <view>+</view>
+    <view>优购生活馆</view>
+  </view>
+
+  <!-- 详情 -->
+  <view class="list-details" wx:for="{{10}}" wx:key="index">
+    <view class="list-details-one">
+      <icon type="success"></icon>
+    </view>
+    <view class="details-page">
+      <view class="details-page-top">
+        <image mode="aspectFill" src="https://img.alicdn.com/i2/2/TB1vDvUKpXXXXaKXFXXSutbFXXX.jpg_170x170q90.jpg"></image>
+      </view>
+      <view class="details-page-text">
+        <text>asdjosajdojfpfpapsf</text>
+        <view class="details-page-text-over">
+          <text>￥279.00</text>
+          <view class="details-page-text-button">
+            <view>-</view>
+            <view>3</view>
+            <view>+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提交订单 -->
+  <view class="tijiao">
+    <view class="list-details-one">
+      <icon type="success"></icon>
+    </view>
+    <view class="tijiao-xiaode">全选</view>
+    <view class="tijiao-xiaode-list">
+      <view>合计：￥14110.00</view>
+      <view>包含运费</view>
+    </view>
+
+    <view class="jiesuan">
+      结算
+    </view>
+  </view>
+</view>

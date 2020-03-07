@@ -55,6 +55,14 @@ Page({
       })
 
     }
+  },
+  handleShowList(e) {
+    console.log(e.target.dataset)
+    const {id} = e.target.dataset
+    if (!id) {
+      this.setData({
+        recommend: []
+      })
+    }
   }
-
 })
