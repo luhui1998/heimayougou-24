@@ -1,8 +1,8 @@
 .comtainer {
   position: relative;
   min-height: 100vh;
+  margin-bottom: 150rpx;
 }
-
 .list-top {
   display: flex;
   justify-content: space-between;
@@ -137,16 +137,29 @@
   align-items: center;
   width: 182rpx;
 }
-.jiesuan{
+
+.jiesuan {
   flex: 1;
   height: 100%;
   background-color: #eb4450;
   color: white;
   text-align: center;
   line-height: 97rpx;
-} 
-.tijiao-xiaode-list{
+}
+
+.tijiao-xiaode-list {
   display: flex;
   width: 280rpx;
   flex-direction: column;
+}
+
+.details-page-text-one {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.details-page-text-button input{
+  width: 60rpx;
 }

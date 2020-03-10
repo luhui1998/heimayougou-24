@@ -2,9 +2,9 @@
   <view>
     <view class="page-section  swiper">
       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="gray" indicator-active-color="white">
-        <block wx:for="{{background}}" wx:key="index">
+        <block wx:for="{{detail.pics}}" wx:key="index" >
           <swiper-item>
-            <image src="https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3435958492,2734674803&fm=26&gp=0.jpg"></image>
+            <image src="{{item.pics_big}}" bindtap="handclickimage" data-index="{{index}}"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -15,34 +15,53 @@
   <view class="page-section-spacing">
     <view class="page-section">
       <view>
-        <text>123</text>
+        ￥
+        <text>{{detail.goods_price}}</text>
       </view>
       <view>
-        <text>我可以我可以我可以我可以我可以我可以我可以我可以我可以我可以</text>
+        <text>{{detail.goods_name}}</text>
       </view>
       <view>
-        <text>123</text>
+        <text>快递：免运费</text>
       </view>
     </view>
 
     <view class="page-spacing">
-      <view>
-        <text>*</text>
+      <view class="iconfont iconshoucang">
+
         <text>收藏</text>
       </view>
     </view>
 
   </view>
 
-  <view class="page-section-bottom">
-    <view>
-      <view class="top"><text>促销</text><text>满300减30元</text></view>
-      <view class="bottom"></view>
-    </view>
 
-    <view>
-        <view class="left">加入购物车</view>
-        <view class="right">立即购买</view>
+
+
+
+  <view class="tab">
+    <view class="tab-item {{tab === index ? 'active' : ''}}" wx:for="{{['详情','规格']}}" wx:key="index" bindtap="handclicktab" data-index="{{index}}">
+      {{item}}
     </view>
   </view>
+  <rich-text wx:if="{{tab === 0}}" nodes="{{detail.goods_introduce}}"></rich-text>
+  <view>
+    <view wx:if="{{tab === 1}}" wx:for="{{detail.attrs}}" wx:key="index">
+      <text>{{item.attr_name}}</text>
+      <text>{{item.attr_vals}}</text>
+    </view>
+  </view>
+</view>
+<view class="btns">
+  <view class="btn-white">
+    <view class="btn-white-button"><button open-type="contact" bindcontact="handleContact">123</button></view>
+    <view class="iconfont iconkefu"></view>
+    <text>联系客服</text>
+  </view>
+  <view class="btn-white" bindtap="handsechitab">
+    <view class="iconfont icongouwuche"></view>
+    <text>购物车</text>
+  </view>
+  <view class="btn-color" bindtap="handshopping">加入购物车</view>
+  <view class="btn-color">立即购买</view>
 </view>

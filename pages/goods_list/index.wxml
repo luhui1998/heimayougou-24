@@ -12,24 +12,28 @@
     <text wx:if="{{index === 2}}" class="iconfont iconpaixu"></text>
   </view>
 </view>
-<navigator url="#">
-  <view class="content-list">
-    <block wx:for="{{goods}}" wx:key="index">
-      <view class="content-son">
-        <view class="left">
-          <image src="{{item.goods_small_logo}}"></image>
-        </view>
+<view>
+  <block wx:for="{{goods}}" wx:key="index">
+    <navigator url="/pages/goods_detail/index?id={{item.goods_id}}">
+      <view class="content-list">
+        <block>
+          <view class="content-son">
+            <view class="left">
+              <image src="{{item.goods_small_logo}}"></image>
+            </view>
 
-        <view class="right">
-          <text>{{item.goods_name}}</text>
-          <text>￥{{item.goods_price}}</text>
+            <view class="right">
+              <text>{{item.goods_name}}</text>
+              <text>￥{{item.goods_price}}</text>
+            </view>
+          </view>
+        </block>
+
+        <view class="bottom-list">
+          <text wx:if="{{hasMore}}">加载中</text>
+          <text wx:if="{{!hasMore}}">爷也是有底线的</text>
         </view>
       </view>
-    </block>
-
-    <view class="bottom-list">
-      <text wx:if="{{hasMore}}">加载中</text>
-      <text wx:if="{{!hasMore}}">爷也是有底线的</text>
-    </view>
-  </view>
-</navigator>
+    </navigator>
+  </block>
+</view>

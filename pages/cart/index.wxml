@@ -23,31 +23,34 @@
   </view>
 
   <view class="list-images">
-    <image src="../../images/cart_border@2x.png" mode="aspectFill"></image>
+    <image src="../../ismages/cart_border@2x.png" mode="aspectFill"></image>
   </view>
   <!-- 生活馆 -->
   <view class="Life-hall">
-    <view>+</view>
+    <view class="iconfont iconshangdian"></view>
     <view>优购生活馆</view>
   </view>
 
   <!-- 详情 -->
-  <view class="list-details" wx:for="{{10}}" wx:key="index">
+  <view class="list-details" wx:for="{{goods}}" wx:key="index">
     <view class="list-details-one">
-      <icon type="success"></icon>
+      <icon type="success" color="{{item.selete ? 'red' : 'gray'}}" bindtap="handclickicon" data-index="{{index}}"></icon>
     </view>
     <view class="details-page">
       <view class="details-page-top">
-        <image mode="aspectFill" src="https://img.alicdn.com/i2/2/TB1vDvUKpXXXXaKXFXXSutbFXXX.jpg_170x170q90.jpg"></image>
+        <navigator url="/pages/goods_detail/index?id={{item.goods_id}}">
+          <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
+        </navigator>
       </view>
       <view class="details-page-text">
-        <text>asdjosajdojfpfpapsf</text>
+        <text class="details-page-text-one">{{item.goods_name}}</text>
         <view class="details-page-text-over">
-          <text>￥279.00</text>
+          <text>￥{{item.goods_price}}.00</text>
           <view class="details-page-text-button">
-            <view>-</view>
-            <view>3</view>
-            <view>+</view>
+            <view bindtap="handnumber" data-index="{{index}}" data-number="{{-1}}">-</view>
+            <input value="{{item.number}}" bindblur="handblur" 
+            data-index="{{index}}"  data-value="{{value}}" ></input>
+            <view bindtap="handnumber" data-index="{{index}}" data-number="{{1}}">+</view>
           </view>
         </view>
       </view>
@@ -61,7 +64,7 @@
     </view>
     <view class="tijiao-xiaode">全选</view>
     <view class="tijiao-xiaode-list">
-      <view>合计：￥14110.00</view>
+      <view>合计：￥{{allprice}}.00</view>
       <view>包含运费</view>
     </view>
 

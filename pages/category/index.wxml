@@ -25,7 +25,7 @@
         <text>{{item.cat_name}}</text> /</view>
       <view class="propet-list">
         <block wx:for="{{item.children}}" wx:key="index" wx:for-item="subIndex">
-          <navigator>
+          <navigator url="/pages/goods_list/index?keyword={{subIndex.cat_name}}">
             <image src="{{subIndex.cat_icon}}" mode="widthFix"></image>
             <view>
             </view>
